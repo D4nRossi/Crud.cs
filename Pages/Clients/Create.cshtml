@@ -1,0 +1,70 @@
+﻿@page
+@model Crud.Pages.Clients.CreateModel
+@{
+}
+
+<br>
+<h2>New Client</h2>
+
+<!--Mensagem casa tenha erro-->
+@if(Model.errorMessage.Length >0){
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"label></button>
+    </div>
+}
+
+<form method="post">
+    <!--Criando o campo do forms-->
+    <!--Nome-->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sn-6">
+            <input type="text" class="form-control" name="name" placeholder="Full name" value="@Model.clientInfo.name" required/>
+        </div>
+    </div>
+    <!--Email-->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sn-6">
+            <input type="text" class="form-control" name="email" placeholder="exemple@crud.com" value="@Model.clientInfo.email" required/>
+        </div>
+    </div>
+    <!--Telefone-->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Phone</label>
+        <div class="col-sn-6">
+            <input type="text" class="form-control" name="phone" placeholder="5511939524211" value="@Model.clientInfo.phone" required/>
+        </div>
+    </div>
+    <!--Endereco-->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Adress</label>
+        <div class="col-sn-6">
+            <input type="text" class="form-control" name="address" placeholder="Santo André, SP" value="@Model.clientInfo.address" required/>
+        </div>
+    </div>
+
+    <!--Mensagem de sucesso-->
+    @if(Model.successMessage.Length > 0){
+        <div class="row mb-3">
+            <div class="col-sn-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="Close"la></button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!--Submit-->
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sn-3 d-grid">
+        <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+        </div>
+    </div>
+    
+</form>
